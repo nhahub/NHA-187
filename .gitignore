@@ -1,0 +1,33 @@
+# --- Virtual Environment ---
+SmartComplaintVE/
+
+# --- Large Software Installations and Archives ---
+# Kafka
+kafka_2.13-3.9.1/
+kafka_2.13-3.9.1.tgz
+
+# Spark
+spark-3.5.7-bin-hado*/
+*.jar
+*.tgz
+
+# Kafdrop Binary
+kafdrop-4.2.0.jar
+
+# --- Python compiled, Temporary, and Generated Files ---
+__pycache__/
+*.pyc
+*.egg-info
+.ipynb_checkpoints/
+# إضافة logs هنا لتجاهل ملفات السجل الناتجة
+*.log
+logs/ 
+
+# --- IDE and OS Files ---
+.vscode/
+.idea/
+.DS_Store
+
+# --- Build/Distribution Files ---
+dist/
+build/

@@ -1,0 +1,4 @@
+pandas
+streamlit
+pyspark==3.5.7
+mysql-connector-python
