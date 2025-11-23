@@ -1,0 +1,6 @@
+Text,Category,Count
+مش عارف أعمل تحديث للبطاقة,SYSTEM_DOWN,31
+الموظفين مش متعاونين,STAFF_BEHAVIOR,30
+مفيش رز من امبارح,STORE_AVAILABILITY,29
+البطاقة محتاجة تفعيل ومش عارف أعمله,CARD_ISSUE,28
+مش قادر أغير الرقم السري للبطاقة,CARD_ISSUE,28
