@@ -128,10 +128,10 @@ services:
       # Email settings
       - AIRFLOW__SMTP__SMTP_HOST=smtp.gmail.com
       - AIRFLOW__SMTP__SMTP_STARTTLS=True
-      - AIRFLOW__SMTP__SMTP_USER=your_email@gmail.com
-      - AIRFLOW__SMTP__SMTP_PASSWORD=your_app_password
+      - AIRFLOW__SMTP__SMTP_USER=medhatsaid56@gmail.com
+      - AIRFLOW__SMTP__SMTP_PASSWORD=vgaq absj aqtk qjst 
       - AIRFLOW__SMTP__SMTP_PORT=587
-      - AIRFLOW__SMTP__SMTP_MAIL_FROM=your_email@gmail.com
+      - AIRFLOW__SMTP__SMTP_MAIL_FROM=medhatsaid56@gmail.com
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs

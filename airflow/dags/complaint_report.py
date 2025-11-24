@@ -8,7 +8,7 @@ import os
 
 # Settings
 REPORT_PATH = "/tmp/daily_complaints_report.xlsx"
-EMAIL_TO = ["manager@company.com"] # Change this
+EMAIL_TO = ["rwannada22@gmail.com",  "medhatsaid56@gmail.com"] # Change this
 
 default_args = {
     'owner': 'airflow',
@@ -40,7 +40,7 @@ def extract_and_generate_report():
     return "data_generated"
 
 with DAG(
-    'daily_smart_complaint_report',
+    'weekly_smart_complaint_report',
     default_args=default_args,
     description='Extracts complaints from MySQL and emails report',
     schedule_interval='@weekly', # Runs once a week
@@ -59,7 +59,7 @@ with DAG(
         task_id='send_email_with_report',
         to=EMAIL_TO,
         subject='Daily Smart Complaint Report',
-        html_content='<h3>Here is the daily summary of processed complaints.</h3>',
+        html_content='<h3>Here is the weekly summary of processed complaints.</h3>',
         files=[REPORT_PATH],
     )
 
