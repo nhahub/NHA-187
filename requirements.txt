@@ -1,0 +1,14 @@
+# --- UI & Producer ---
+streamlit
+kafka-python
+pandas
+
+# --- Data Processing & Spark ---
+pyspark==3.5.0   # Matches the Bitnami Docker image version
+numpy
+
+# --- Machine Learning (For your Model) ---
+scikit-learn     # Assuming you used sklearn. Change to tensorflow/pytorch if needed.
+joblib           # Often used to load .pkl models
+
+airflow==2.8.1

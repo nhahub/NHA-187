@@ -1,0 +1,18 @@
+# --- 1. Python & System Junk ---
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+venv/
+env/
+
+# --- 2. Docker Volumes (NEVER push these!) ---
+# These contain your actual database rows and Kafka logs
+mysql_data/
+airflow_db_data/
+airflow/logs/
+spark-checkpoint/
+
+# --- 4. Secrets (Optional but Recommended) ---
+# If you create a .env file for passwords later
+.env
