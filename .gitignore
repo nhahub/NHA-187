@@ -33,5 +33,4 @@ dist/
 build/
 
 *.Zone.Identifier
-model/
-model/*
+
