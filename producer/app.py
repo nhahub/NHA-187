@@ -10,18 +10,23 @@ st.title("نظام الشكاوى الذكي")
 st.write("من فضلك املأ البيانات التالية لإرسال شكواك:")
 
 # إعداد Kafka Producer
+# Ensure 'kafka:9092' matches your Docker service name
 producer = KafkaProducer(
     bootstrap_servers='kafka:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# إدخال البيانات
-name = st.text_input("الاسم")
-national_id = st.text_input("الرقم القومي (14 رقم)")
-complaint = st.text_area("نص الشكوى", max_chars=500)
+# === FIX: Using st.form to clear inputs after submission ===
+with st.form(key='complaint_form', clear_on_submit=True):
+    name = st.text_input("الاسم")
+    national_id = st.text_input("الرقم القومي (14 رقم)")
+    complaint = st.text_area("نص الشكوى", max_chars=500)
+    
+    # Must use st.form_submit_button inside a form
+    submit_button = st.form_submit_button(label="إرسال الشكوى")
 
 # عند الضغط على زر الإرسال
-if st.button("إرسال الشكوى"):
+if submit_button:
 
     # Validation
     if not name or not national_id or not complaint:

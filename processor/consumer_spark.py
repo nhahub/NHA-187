@@ -195,7 +195,7 @@ import numpy as np
 # 🧱 1️⃣ Define Input Schema
 # ==================================================
 schema = StructType([
-    StructField("id", StringType(), True),
+    StructField("complaint_id", StringType(), True),
     StructField("name", StringType(), True),
     StructField("national_id", StringType(), True),
     StructField("complaint", StringType(), True),
@@ -305,7 +305,7 @@ processed_df = parsed_df.withColumn("category_prediction", category_udf(col("com
                         .withColumn("sentiment_prediction", sentiment_udf(col("complaint")))
 
 final_df = processed_df.select(
-    col("id"), col("name"), col("national_id"), col("complaint"), 
+    col("complaint_id"), col("name"), col("national_id"), col("complaint"), 
     col("submitted_at"), col("category_prediction"), col("sentiment_prediction")
 )
 
