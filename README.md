@@ -1,4 +1,4 @@
-# 🤖 Smart Subsidy Complaints AI Platform
+# 📢 Smart Complaint System
 
 <table style="border-collapse: collapse; border-spacing: 0;">
   <tr style="border: none;">
@@ -6,14 +6,14 @@
       <img src="./Images/Others/DataFlow.jpg" width="140" style="border-radius: 50%;border: 3px solid #718096" alt="Team Logo"/>
     </td>
     <td align="left" valign="middle" style="border:none;">
-      <h1 style="margin: 0; font-size: 40px;">DataFlow</h1>
+      <h1 style="margin: 0; font-size: 40px;">DataFlow Team</h1>
         <p>
-        <img src="https://img.shields.io/badge/Status-In%20Progress-blue" alt="Project Status"/>
-        <img src="https://img.shields.io/badge/Apache%20Kafka-2.8.1-000000?logo=apachekafka" alt="Kafka"/>
-        <img src="https://img.shields.io/badge/Apache%20Spark-3.2.0-E25A1C?logo=apachespark" alt="Spark"/>
-        <img src="https://custom-icon-badges.demolab.com/badge/-2.3.3-017CEE?logo=airflow-ge&style=flat&label=Apache Airflow" alt="Airflow"/>
+        <img src="https://img.shields.io/badge/Status-Completed-success" alt="Project Status"/>
+        <img src="https://img.shields.io/badge/Apache%20Kafka-3.7.0-000000?logo=apachekafka" alt="Kafka"/>
+        <img src="https://img.shields.io/badge/Apache%20Spark-3.5.0-E25A1C?logo=apachespark" alt="Spark"/>
+        <img src="https://custom-icon-badges.demolab.com/badge/-Apache%20Airflow-gray?logo=airflow-ge&style=flat" alt="Airflow"/>
+        <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white" alt="MySQL"/>
         <img src="https://img.shields.io/badge/Streamlit-1.10.0-FF4B4B?logo=streamlit" alt="Streamlit"/>
-        <img src="https://img.shields.io/badge/Hugging%20Face-Transformers-FFD21E.svg?logo=huggingface" alt="Hugging Face"/>
         <img src="https://img.shields.io/badge/Docker-20.10-2496ED?logo=docker" alt="Docker"/>
         </p>
     </td>
@@ -24,66 +24,18 @@
 
 ## 📖 About The Project
 
-This project aims to build an **AI-powered Big Data platform** for managing and analyzing subsidy-related complaints in Arabic. It enables **real-time collection, processing, and analysis** of citizen complaints to improve **transparency, efficiency, and service quality**.
+**Smart Complaint System** is an intelligent, event-driven Big Data platform designed to automate the handling of customer complaints. Developed as part of the **Digital Egypt Pioneers Initiative (DEPI) - Round 3 (Huawei Big Data Program)**, this system addresses the challenges of manual complaint sorting by leveraging real-time stream processing and Natural Language Processing (NLP).
 
-The system combines **Streamlit, Kafka, Spark, Airflow, and PostgreSQL** inside a fully containerized **Docker** environment to automate the data flow from initial submission to final insight.
-
-This project was created for the **AI & Data Science Track - Round 3** of the **Digital Egypt Pioneers** program, sponsored by the **Ministry of Communications and Information Technology**.
+The platform ingests unstructured complaints, uses a fine-tuned **BERT model** to categorize them and assess sentiment severity in real-time, and generates automated reports for stakeholders. The entire infrastructure is containerized for seamless deployment.
 
 ### ✨ Core Features
 
-- **Real-Time Ingestion:** A Streamlit web app captures user complaints and sends them instantly to a Kafka topic.
-- **AI-Powered Classification:** A fine-tuned **`arabert`** model from Hugging Face performs multi-label classification to categorize complaints (e.g., `BREAD_QUALITY`, `STAFF_BEHAVIOR`, `CARD_ISSUE`).
-- **Scalable Stream Processing:** **Apache Spark** (Structured Streaming) consumes data from Kafka, applies AI model inference in real-time, and writes structured results to PostgreSQL.
-- **Workflow Orchestration:** **Apache Airflow** manages scheduled batch jobs, such as generating daily summary reports.
-- **Interactive Dashboard:** A second Streamlit page queries the PostgreSQL database to display real-time analytics, charts, and key performance indicators.
-
----
-
-## 🏗️ Architecture Overview
-
-![Architecture Diagram](./Images/Others/project_architecture.png)
-
----
-
-## 🛠️ Technologies & Tools
-
-| Category              | Technology                  | Purpose                                                                        |
-| :-------------------- | :-------------------------- | :----------------------------------------------------------------------------- |
-| **Containerization**  | Docker & Docker Compose     | To build, run, and manage all services in an isolated environment.             |
-| **User Interface**    | Streamlit                   | For the complaint submission form and the analytics dashboard.                 |
-| **Message Broker**    | Apache Kafka & Zookeeper    | For real-time, fault-tolerant data ingestion as a message queue.               |
-| **Stream Processing** | Apache Spark                | To consume from Kafka, run AI model inference, and process data.               |
-| **AI & NLP**          | Hugging Face `transformers` | To load and fine-tune the `arabert` model for multi-label text classification. |
-| **Orchestration**     | Apache Airflow              | To schedule and monitor batch data pipelines (e.g., daily reports).            |
-| **Database**          | PostgreSQL                  | To store the structured, analyzed complaint data for the dashboard.            |
-| **Monitoring**        | Kafka UI                    | To easily view topics and messages in the Kafka cluster.                       |
-
----
-
-## 📊 Project Milestones
-
-This project is being built in the following phases:
-
-- **Milestone 1: Foundations & Data Preparation**
-
-  - Define the multi-label classification schema and create a labeled dataset of 500-1,000 Arabic complaints.
-
-- **Milestone 2: The End-to-End "Skeleton" Pipeline**
-
-  - Build the full data pipeline (`Streamlit` -> `Kafka` -> `Spark` -> `PostgreSQL`) using a **"dummy" AI model** to ensure the plumbing works.
-
-- **Milestone 3: The AI Model (Fine-Tuning)**
-
-  - Use the labeled data from Milestone 1 to fine-tune the `arabert` model for our specific complaint categories.
-
-- **Milestone 4: Integration, Orchestration & Polish**
-
-  - Replace the "dummy" logic in the Spark job with the real, fine-tuned AI model using a Pandas UDF.
-  - Build an Airflow DAG for a daily summary report.
-
-- **Milestone 5: Final Testing & Documentation**
-  - Perform end-to-end testing and finalize all project documentation.
+- **🚀 Real-Time Ingestion:** A user-friendly **Streamlit** interface captures complaints and streams them instantly to **Apache Kafka**.
+- **🧠 AI-Powered Inference:** - **Classification:** Routes complaints to 5 departments (e.g., `Bread Quality`, `Staff Behavior`, `System Down`) using a fine-tuned BERT model.
+  - **Sentiment Analysis:** Calculates a "Severity Score" (High/Medium/Low) based on the emotional tone of the text.
+- **⚡ Scalable Stream Processing:** **Apache Spark Structured Streaming** processes data in micro-batches, applying "Lazy Loading" for efficient model inference.
+- **🗄️ Persistent Storage:** Processed data is stored in **MySQL** for historical analysis.
+- **📧 Automated Reporting:** **Apache Airflow** orchestrates a weekly workflow to generate Excel reports and email them directly to stakeholders.
 
 ---
 
@@ -190,5 +142,67 @@ This project is being built in the following phases:
     </table>
   </div>
 </div>
+
+---
+
+## 🏗️ Architecture Overview
+
+The system follows a microservices architecture orchestrated by Docker Compose:
+
+1.  **Producer:** Streamlit App $\rightarrow$ Validates input $\rightarrow$ Sends JSON to Kafka.
+2.  **Message Broker:** Apache Kafka buffers high-velocity data.
+3.  **Processor:** Spark Streaming consumes data $\rightarrow$ Loads AI Models $\rightarrow$ Writes to MySQL.
+4.  **Storage:** MySQL database stores the raw text and AI predictions.
+5.  **Orchestrator:** Airflow runs weekly jobs to extract data from MySQL and send email summaries.
+
+![Architecture Diagram](./Images/Others/project_architecture.png)
+
+---
+
+## 🛠️ Technologies & Tools
+
+| Category              | Technology                  | Purpose                                                                        |
+| :-------------------- | :-------------------------- | :----------------------------------------------------------------------------- |
+| **Containerization** | Docker & Docker Compose     | Orchestration of the 5-service stack (Kafka, Spark, MySQL, Airflow, Streamlit).|
+| **User Interface** | Streamlit                   | Interactive web form for complaint submission with validation logic.           |
+| **Message Broker** | Apache Kafka                | Decoupled, fault-tolerant message buffering.                                   |
+| **Stream Processing** | Apache Spark (PySpark)      | Distributed processing engine for real-time AI inference.                      |
+| **AI & NLP** | Hugging Face (PyTorch)      | Fine-tuned BERT models for Arabic text classification.                         |
+| **Storage** | MySQL 8.0                   | Relational database for storing analyzed complaints.                           |
+| **Orchestration** | Apache Airflow              | Scheduling weekly reporting and email notifications.                           |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Docker Desktop installed and running.
+- 4GB+ RAM available for containers.
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/medhat2525548/smart-complaint-system.git](https://github.com/medhat2525548/smart-complaint-system.git)
+   cd smart-complaint-system
+   ```
+
+2.  **Download AI Models**
+    Ensure the fine-tuned models are placed in the `processor/models/` directory:
+
+      - `processor/models/category_model/`
+      - `processor/models/sentiment_model/`
+
+3.  **Start the Services**
+
+    ```bash
+    docker-compose up --build -d
+    ```
+
+4.  **Access the Interfaces**
+
+      - **Complaint Portal:** `http://localhost:8501`
+      - **Spark UI:** `http://localhost:8080`
+      - **Airflow UI:** `http://localhost:8081` (User/Pass: `admin`/`admin`)
 
 ---
