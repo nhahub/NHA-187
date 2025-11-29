@@ -24,7 +24,7 @@ def extract_and_generate_report():
     # 2. Query Data (e.g., Get data from last 24 hours)
     sql = """
         SELECT * FROM complaints_analyzed 
-        WHERE submitted_at >= NOW() - INTERVAL 1 DAY
+        WHERE submitted_at >= NOW() - INTERVAL 1 WEEK
     """
     df = hook.get_pandas_df(sql)
     
