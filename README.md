@@ -155,7 +155,7 @@ The system follows a microservices architecture orchestrated by Docker Compose:
 4.  **Storage:** MySQL database stores the raw text and AI predictions.
 5.  **Orchestrator:** Airflow runs weekly jobs to extract data from MySQL and send email summaries.
 
-![Architecture Diagram](./Images/Others/project_architecture.png)
+![Architecture Diagram](./Images/Others/Architecture Overview.png)
 
 ---
 
